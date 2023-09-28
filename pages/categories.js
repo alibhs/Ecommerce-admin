@@ -35,32 +35,35 @@ function Categories({swal}) {
     setName(category.categoryName);
     setCategoryId(category.categoryId);
     }
-   async function deleteCategory(category){
+    function deleteCategory(category){
         swal
           .fire({
             title: "Emin misiniz ?",
             text: category.categoryName + "  silmek üzeresiniz ",
             showCancelButton: true,
-            cancelButtonTitle: "Vazgeç",
+            cancelButtonText: "Vazgeç",
             confirmButtonText: "Sil",
-            reverseButton: true,
             confirmButtonColor: "#d55",
+            reverseButtons: true,
           })
           .then((result) => {
-            axios.post("https://localhost:44374/api/Categories/delete", {
+            if(result.isConfirmed){
+              axios.post("https://localhost:44374/api/Categories/delete", {
               categoryName: category.categoryName,
               categoryId: category.categoryId,
             });
             fetchCategories();
+            }
           });
         
     }
     return (
-        
       <Layout>
         <h1>Kategoriler</h1>
         <label>
-          {editedCategory ? 'Kategoriyi düzenle: '+editedCategory.categoryName : "Yeni Kategori Adı"}
+          {editedCategory
+            ? "Kategoriyi düzenle: " + editedCategory.categoryName
+            : "Yeni Kategori Adı"}
         </label>
         <form onSubmit={saveCategory} className="flex gap-1">
           <input
@@ -89,7 +92,10 @@ function Categories({swal}) {
         </form>
         <table className="basic mt-4">
           <thead>
-            <td>Kategori Adı</td>
+          <tr>
+              <td>Kategori adı</td>
+              <td></td>
+            </tr>
           </thead>
           <tbody>
             {categories.length > 0 &&
@@ -99,13 +105,16 @@ function Categories({swal}) {
                   <td>
                     <button
                       onClick={() => editCategory(category)}
-                      className="btn-primary mr-1"
+                      className="btn-default mr-2"
                     >
                       Düzenle
                     </button>
                     <button
-                    onClick={()=>deleteCategory(category)}
-                     className="btn-primary">Sil</button>
+                      onClick={() => deleteCategory(category)}
+                      className="btn-red"
+                    >
+                      Sil
+                    </button>
                   </td>
                 </tr>
               ))}
