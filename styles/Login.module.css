@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+
+.html {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    color: #fff;
+}
+
+.body {
+    display: flex;
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
+    height: 100vh; /* Sayfanın yüksekliği kadar */
+    margin: 0;
+    background-color: #ff0010;
+
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 1rem 0.5rem;
+}
+
+.section {
+    width: 100%;
+    max-width: 500px;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background-color: #e10514;
+    border-radius: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+}
+
+.a, .a:visited {
+    color: #fff;
+    font-size: 1.25rem;
+
+}
+
+.button{
+    background-color: white;
+    
+}
+
+.button,
+.textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.label,
+.button {
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.5rem;
+}
+
+.instructions {
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    background: #E10514;
+    color: white;
+    position: relative;
+    bottom: -10px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color: #E10514;
+    color: white;
+    font-weight: bold;
+    padding: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.line {
+    display: inline-block;
+}

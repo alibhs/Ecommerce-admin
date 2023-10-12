@@ -68,6 +68,8 @@ function Categories({swal}) {
         <form onSubmit={saveCategory} className="flex gap-1">
           <input
             type="text"
+            required
+            minLength={2}
             className="mb-0"
             placeholder={"Kategori Adı"}
             onChange={(e) => setName(e.target.value)}

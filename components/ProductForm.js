@@ -72,6 +72,8 @@ export default function ProductForm({
       <label>Ürün İsmi</label>
       <input
         type="text"
+        minLength={2}
+        required
         placeholder="Ürün ismi"
         value={productName}
         onChange={(e) => setProductname(e.target.value)}
@@ -114,12 +116,15 @@ export default function ProductForm({
       <label>Ürün Hakkında</label>
       <textarea
         placeholder="Ürün Hakkında"
+        required
+        minLength={5}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       ></textarea>
       <label>Fiyat</label>
       <input
         type="number"
+        required
         placeholder="Fiyat"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
@@ -127,10 +132,11 @@ export default function ProductForm({
       <label>Stok</label>
       <input
         type="number"
+        required
         placeholder="Stok"
         value={unitInStock}
         onChange={(e) => setUnitInStock(e.target.value)}
-      />
+      />  
       <button type="submit" className="btn-primary">
         Kaydet
       </button>
